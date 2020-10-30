@@ -425,7 +425,8 @@ hist(sum_data$sum, breaks = seq(0, 25000, by = 2500), main = &quot;Total number 
 mean_data &lt;- round(mean(sum_data$sum, na.rm = TRUE), 2)
 
 median_data &lt;- round(median(sum_data$sum, na.rm = TRUE), 2)</code></pre>
-<p>Mean of total steps is 9354.23. Median of total steps is 10395.</p>
+<p><em>Mean of total steps is 9354.23.</em><br />
+<em>Median of total steps is 10395.</em></p>
 </div>
 <div id="what-is-the-average-daily-activity-pattern" class="section level2">
 <h2>What is the average daily activity pattern?</h2>
@@ -442,7 +443,7 @@ plot(mean_int_data$interval, mean_int_data$mean, type = &quot;l&quot;,
 <pre class="r"><code>## Calculating and presenting max of steps per interval
 max_interval &lt;- mean_int_data[which.max(mean_int_data$mean), 
     ]$interval</code></pre>
-<p>The 5-minute interval that contains the maximum number of steps on average across all days is: 835 , with a number of 104 steps</p>
+<p><em>The 5-minute interval that contains the maximum number of steps on average across all days is: 835 , with a number of 104 steps.</em></p>
 </div>
 <div id="imputing-missing-values" class="section level2">
 <h2>Imputing missing values</h2>
@@ -451,11 +452,11 @@ max_interval &lt;- mean_int_data[which.max(mean_int_data$mean),
 </ol>
 <pre class="r"><code>## Calculating and presenting number of missing values
 miss &lt;- sum(is.na(data$steps))</code></pre>
-<p>The number of total missing values id: 2304</p>
+<p><em>The number of total missing values id: 2304</em></p>
 <ol start="2" style="list-style-type: decimal">
 <li>Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.</li>
-<li>Identifying and filling NAs with median of interval</li>
 </ol>
+<p><em>Identifying and filling NAs with median of interval</em></p>
 <pre class="r"><code>## Identifying and filling NAs with median of interval
 fill_miss_data &lt;- data
 
@@ -480,21 +481,18 @@ mean_fill_data &lt;- round(mean(sum_fill_data$sum, na.rm = TRUE),
 
 median_fill_data &lt;- round(median(sum_fill_data$sum, na.rm = TRUE), 
     2)</code></pre>
-<p>Mean of total steps is: 10587.94.<br />
-Median of total steps is: 10682.5.</p>
-<p>The impact is:</p>
+<p><em>Mean of total steps is: 10587.94.</em><br />
+<em>Median of total steps is: 10682.5.</em></p>
+<p><em>The impact is:</em></p>
 <pre class="r"><code>## Calculating and presenting mean of total of steps per day
 metrics &lt;- cbind.data.frame(c(mean_data, median_data), c(mean_fill_data, 
     median_fill_data))
 names(metrics) &lt;- c(&quot;Original data set&quot;, &quot;Filling missing values&quot;)
 row.names(metrics) &lt;- c(&quot;Mean&quot;, &quot;Median&quot;)
 metrics</code></pre>
-<pre><code>##        Original data set
-## Mean                9354
-## Median             10395
-##        Filling missing values
-## Mean                    10588
-## Median                  10682</code></pre>
+<pre><code>##        Original data set Filling missing values
+## Mean                9354                  10588
+## Median             10395                  10682</code></pre>
 </div>
 <div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level2">
 <h2>Are there differences in activity patterns between weekdays and weekends?</h2>

@@ -65,8 +65,8 @@ mean_data <- round(mean(sum_data$sum,na.rm = TRUE),2)
 
 median_data <- round(median(sum_data$sum,na.rm = TRUE),2) 
 ```
-Mean of total steps is `r mean_data`. 
-Median of total steps is `r median_data`.
+*Mean of total steps is `r mean_data`.*   
+*Median of total steps is `r median_data`.*
 
 
 ## What is the average daily activity pattern?
@@ -84,8 +84,8 @@ plot(mean_int_data$interval,mean_int_data$mean,type = "l",
 ## Calculating and presenting max of steps per interval
 max_interval <- mean_int_data[which.max(mean_int_data$mean),]$interval
 ```
-The 5-minute interval that contains the maximum number of steps on average 
-across all days is:  `r max_interval` , with a number of `r which.max(mean_int_data$mean)` steps
+*The 5-minute interval that contains the maximum number of steps on average 
+across all days is:  `r max_interval` , with a number of `r which.max(mean_int_data$mean)` steps.*  
 
 
 ## Imputing missing values
@@ -97,14 +97,15 @@ across all days is:  `r max_interval` , with a number of `r which.max(mean_int_d
 ## Calculating and presenting number of missing values
 miss <- sum(is.na(data$steps))
 ```
-The number of total missing values id: `r miss`
+*The number of total missing values id: `r miss`*
 
 
 2. Devise a strategy for filling in all of the missing values in the dataset. 
 The strategy does not need to be sophisticated. 
 For example, you could use the mean/median for that day, or the mean for that 
-5-minute interval, etc.
-3. Identifying and filling NAs with median of interval  
+5-minute interval, etc.  
+  
+  *Identifying and filling NAs with median of interval*  
 
 ```{r fill_missing_values, warning=FALSE}
 ## Identifying and filling NAs with median of interval
@@ -140,11 +141,10 @@ mean_fill_data <- round(mean(sum_fill_data$sum,na.rm = TRUE),2)
 
 median_fill_data <- round(median(sum_fill_data$sum,na.rm = TRUE),2) 
 ```
-Mean of total steps is:  `r mean_fill_data`.  
-Median of total steps is: `r median_fill_data`.
-
-
-The impact is:
+*Mean of total steps is:  `r mean_fill_data`.*  
+*Median of total steps is: `r median_fill_data`.*
+  
+*The impact is:*
 
 ```{r comparison_mean_and_median_per_day}
 ## Calculating and presenting mean of total of steps per day
